@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: adam_backend:latest  # Replace with your actual image name
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_HOST
+          value: mysql
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_USER
+          value: user
+        - name: DB_PASSWORD
+          value: userpassword
+        - name: DB_NAME
+          value: techdome_db
+        - name: CLOUD_NAME
+          value: your_cloud_name
+        - name: API_KEY
+          value: your_api_key
+        - name: API_SECRET
+          value: your_api_secret
