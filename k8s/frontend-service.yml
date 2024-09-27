@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: NodePort  # Expose the frontend service via a NodePort
+  ports:
+    - port: 80
+      nodePort: 30001  # Specify the NodePort (optional)
+  selector:
+    app: frontend
